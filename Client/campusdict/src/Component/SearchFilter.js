@@ -40,9 +40,13 @@ function SearchFilter(){
                         <div className="card-body">
                             <h5 className="card-title">{item.title}</h5>
                             <p className="card-text">{item.desc}</p>
+<<<<<<< Updated upstream
                             <a  href="https://calendly.com/campusdictionary/uietchd/2022-03-23T09:00:00+05:30?month=2022-03&date=2022-03-23" class="waves-effect waves-light btn">
                                 Schedule Meet<i class="material-icons right">send</i>
                             </a>
+=======
+                          
+>>>>>>> Stashed changes
                         </div>
                     </div>
                  </div> 

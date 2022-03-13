@@ -12,9 +12,7 @@ function SearchFilter(){
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
         )
     });
-    function meet(){
-        <a target="_blank" href="https://calendly.com/campusdictionary/uietchd/2022-03-23T09:00:00+05:30?month=2022-03&date=2022-03-23"></a>
-    }
+    
     
     return(
        <section className="py-4 container">
@@ -42,8 +40,9 @@ function SearchFilter(){
                         <div className="card-body">
                             <h5 className="card-title">{item.title}</h5>
                             <p className="card-text">{item.desc}</p>
-                            <button onClick={}class="btn waves-effect waves-light" type="submit" name="action">Schedule Meet<i class="material-icons right">send</i>
-                            </button>
+                            <a  href="https://calendly.com/campusdictionary/uietchd/2022-03-23T09:00:00+05:30?month=2022-03&date=2022-03-23" class="waves-effect waves-light btn">
+                                Schedule Meet<i class="material-icons right">send</i>
+                            </a>
                         </div>
                     </div>
                  </div> 

@@ -34,13 +34,13 @@ function SearchFilter(){
 
                {dataSearch.map((item,index)=>{
                    return(
-                    <div className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
+                    <div className="col-11 col-md-4 col-lg-3 mx-0 mb-4">
                     <div className="card p-0 overflow-hidden h-100 shadow">
                         <img src={item.img } className="card-img-top" alt="none"/>
                         <div className="card-body">
                             <h5 className="card-title">{item.title}</h5>
                             <p className="card-text">{item.desc}</p>
-                            <a  href="https://calendly.com/campusdictionary/uietchd/2022-03-23T09:00:00+05:30?month=2022-03&date=2022-03-23" class="waves-effect waves-light btn">
+                            <a  href={item.website}>
                                 Schedule Meet<i class="material-icons right">send</i>
                             </a>
                         </div>

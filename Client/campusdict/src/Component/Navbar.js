@@ -2,7 +2,7 @@ import React from "react";
 function Navbar(){
     return(
     <nav>
-    <div className="nav-wrapper white">
+    <div className="nav-wrapper ">
       <a href="#" className="left brand-logo">Campus Dictionary</a>
       <ul id="nav-mobile" className="right ">
         <li><a href="sass.html">SignIn</a></li>

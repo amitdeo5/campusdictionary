@@ -2,6 +2,7 @@
 
 a{
     color: black !important;
+    text-decoration: none;
 }
 .brand-logo,h2{
     font-family: 'Grand Hotel','cursive';

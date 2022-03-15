@@ -5,7 +5,7 @@ const data={
             img:'https://images.shiksha.com/mediadata/images/1604055117phpA7f02X.jpeg',
             title:'UIET Chandigarh',
             desc:'NIRF ##',
-            website:"https://calendly.com/campusdictionary/uietchd/2022-03-23T09:00:00+05:30?month=2022-03&date=2022-03-23"
+            website:"https://calendly.com/campusdictionary/uietchd"
         },
         {
             id:2,

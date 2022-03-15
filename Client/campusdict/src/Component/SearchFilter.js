@@ -41,8 +41,9 @@ function SearchFilter(){
                         <img src={item.img } className="card-img-top" alt="none"/>
                         <div className="card-body">
                             <h5 className="card-title">{item.title}</h5>
-                            <p className="card-text">{item.desc}</p>
-                            <a  href={item.website}>
+                            <p style = {{color : "red"}} className="card-text">{item.desc}</p>
+                            
+                            <a style = {{position:"absolute; bottom:0"}} href={item.website}>
                                 Schedule Meet<i class="material-icons left">send</i>
                             </a>
                         </div>

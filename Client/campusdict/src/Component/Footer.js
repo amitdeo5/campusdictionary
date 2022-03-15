@@ -2,29 +2,37 @@ import React from "react";
 
 function Footer(){
     return(
-        <footer class="page-footer grey-lighten-2">
+        <footer class="page-footer grey-lighten-2 foot">
+        <br/>
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="black-text">| Campus Dictionary</h5>
-                <p class="white-text text-lighten-4">Campus Dictionary is one point solution for Company's HRs, TPC of colleges, as well as for students.</p>
+              <img  style = {{height : "250px"}} src="./CD.png" alt=""/>  
               </div>
-              <div class="col l4 offset-l4 s12">
-                <h5 class="black-text">| Quick Links</h5>
+              <div class="col 10 offset-l0 s12">
+                <h5 class="black-text">| Quick Links</h5>         <br/>
+
                 <ul>
                   <li><a class="white-text text-lighten-3" href="#!">About Us</a></li>
-                  <li><a class="white-text text-lighten-3" href="#!">Our Team</a></li>
-                  <li><a class="white-text text-lighten-3" href="#!">Terms & Conditions</a></li>
-                  <li><a class="white-text text-lighten-3" href="#!">Privacy Policy</a></li>
+                  <br/>
+
+                  <li><a class="white-text text-lighten-3" href="#!">Our Team</a></li>        <br/>
+
+                  <li><a class="white-text text-lighten-3" href="#!">Terms & Conditions</a></li>        <br/>
+
+                  <li><a class="white-text text-lighten-3" href="#!">Privacy Policy</a></li>       
+
                 </ul>
               </div>
 
 
               <div class="col l4 offset-l0 s12">
-                <h5 class="black-text">| Contact Us</h5>
+                <h5 class="black-text">| Contact Us</h5>         <br/>
+
                 <ul>
-                  <li><a class="white-text text-lighten-3" href="#!"> <i class="material-icons center">call</i>+91 9931XXXX39</a></li>
-                  <li><a class="white-text text-lighten-3" href="#!">  <i class="material-icons left">mail</i>ask@campusdictionary.com</a></li>
+                  <li><a class="white-text text-lighten-3" href="#!"> <i class="material-icons center">call</i>+91 9931XXXX39</a></li>         <br/>
+
+                  <li><a class="white-text text-lighten-3" href="#!">  <i class="material-icons left">mail</i>ask@campusdictionary.com</a></li> 
                   
                 </ul>
               </div>
@@ -37,7 +45,7 @@ function Footer(){
           </div>
           <div class="footer-copyright">
             <div class="container ">
-             Made with 💟  <br/>  © COPYRIGHTED CONTENT | ALL RIGHT RESERVED
+               © COPYRIGHTED CONTENT | ALL RIGHT RESERVED
             
             <a class="white-text text-lighten-4 right" href="#!">
             <i class="material-icons right">facebook</i>

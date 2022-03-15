@@ -6,13 +6,10 @@ function Images() {
 
   return (
 
-    <div class ="container">
-
-    {/* <img  style = {{height : "100px"}} src="./CD.png" alt=""/>   */}
-    <h1 style = {{fontFamily : "helvetica" , textAlign : "center"}} >CAMPUS DICTIONARY</h1>
-    <h3 style = {{fontFamily : "helvetica" , textAlign : "center"}} >One Point Solution</h3>
-    <h2 style = {{fontFamily : "helvetica" , textAlign : "center"}} >for</h2>
-    <h3 style = {{fontFamily : "helvetica" , textAlign : "center"}} >Companies - HRs | Colleges- TPC | Students | </h3>
+    <div class ="container banner">
+         <br/>
+    {/* <img  style = {{height : "460px" , width : "1300px"}} src="./banner.png" alt=""/>   */}
+    <img  style = {{size : "reflex" , width: "100%" , height: "auto" }} src="./banner.png" alt=""/>  
 
     </div>
   )

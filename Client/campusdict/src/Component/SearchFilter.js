@@ -18,20 +18,22 @@ function SearchFilter(){
        <section className="py-4 container">
            <div className="row justify-center">
                <div className="col-6 mb-5">
-                   <div className="mb-1 col-5 mx-auto text-left">
+                   <div className="mb-2 col-10 mx-auto text-left">
                    <i class="material-icons left">search</i>
-                       <h5 cardData="form-lable h1">Search College</h5> 
+                       <h5 cardData="form-lable h1">Search</h5> 
                         
                        <input 
-                       className="form-control" 
+                       className="form-control mr-sm-2" 
                        type="text" 
+                       placeholder="Type College Name Here"
+                       aria-label="Search"
                        value={filter}
                        onChange={searchtext.bind(this)}/>
 
                    </div>
 
                </div>
-
+               {/* <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> */}
 
 
                {dataSearch.map((item,index)=>{

@@ -17,9 +17,11 @@ function SearchFilter(){
     return(
        <section className="py-4 container">
            <div className="row justify-center">
-               <div className="col-12 mb-5">
-                   <div className="mb-3 col-4 mx-auto text-center">
-                       <h1 cardData="form-lable h4">Search</h1>
+               <div className="col-6 mb-5">
+                   <div className="mb-1 col-5 mx-auto text-left">
+                   <i class="material-icons left">search</i>
+                       <h5 cardData="form-lable h1">Search College</h5> 
+                        
                        <input 
                        className="form-control" 
                        type="text" 
@@ -41,7 +43,7 @@ function SearchFilter(){
                             <h5 className="card-title">{item.title}</h5>
                             <p className="card-text">{item.desc}</p>
                             <a  href={item.website}>
-                                Schedule Meet<i class="material-icons right">send</i>
+                                Schedule Meet<i class="material-icons left">send</i>
                             </a>
                         </div>
                     </div>

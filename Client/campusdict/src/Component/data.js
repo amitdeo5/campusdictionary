@@ -41,7 +41,26 @@ const data={
             title:'UIET PUSSGRC',
             desc:'NIRF ##',
             website:"https://calendly.com/campusdictionary/meeting-with-nit-kurukshetra-clone"
+        },
+
+        {
+            id:7,
+            img:'https://images.shiksha.com/mediadata/images/1563363984php9llevZ.jpeg',
+            title:'CCET Chandigarh',
+            desc:'NIRF ##',
+            website:"https://calendly.com/campusdictionary/meeting-with-pu-ssgrc-clone"
+        },
+
+        {
+            id:8,
+            img:'https://images.shiksha.com/mediadata/images/1563363984php9llevZ.jpeg',
+            title:'Chandigarh University',
+            desc:'NIRF ##',
+            website:"https://calendly.com/campusdictionary/meeting-with-ccet-chandigarh-clone"
         }
+
+
+
     ]
 }
 

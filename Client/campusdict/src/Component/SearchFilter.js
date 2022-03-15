@@ -17,11 +17,13 @@ function SearchFilter(){
     return(
        <section className="py-4 container">
            <div className="row justify-center">
-               <div className="col-6 mb-5">
-                   <div className="mb-2 col-10 mx-auto text-left">
+               <div className="col-10 mb-15">
+                   <div className="mb-10 col-15 mx-auto text-left">
                    <i class="material-icons left">search</i>
                        <h5 cardData="form-lable h1">Search</h5> 
-                        
+
+                                           
+
                        <input 
                        className="form-control mr-sm-2" 
                        type="text" 
@@ -29,8 +31,9 @@ function SearchFilter(){
                        aria-label="Search"
                        value={filter}
                        onChange={searchtext.bind(this)}/>
-
+                  
                    </div>
+                   
 
                </div>
                {/* <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" /> */}

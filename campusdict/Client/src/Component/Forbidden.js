@@ -8,7 +8,7 @@ function Forbidden(){
             'margin':'0 0 1rem 0',
             'fontSize':'8rem',
             'textShadow':'0 0 6px #8b4d1a'
-        }}>403</h1> 
+        }}>404</h1> 
         <p
         style={{
             'margin-bottom': '0.5em',
@@ -16,7 +16,7 @@ function Forbidden(){
             'color': '#ea8a1a',
             'paddingTop':'7em'  
         }}
-        >Sorry, it's not allowed to go beyond this point!</p>
+        >Sorry, Not Found !</p>
         <p><a 
         style={{
             'border-bottom': '1px dashed #837256',

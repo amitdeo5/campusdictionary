@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 a{
    text-decoration: none;
@@ -6,7 +9,9 @@ a{
 a:hover{
     color:black;
 }
-
+img{
+    max-width: none;
+}
 
 .auth-card{
     padding: 20px;

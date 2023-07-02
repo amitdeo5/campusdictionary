@@ -12,7 +12,8 @@ function CollegeDash(){
     }
     useEffect(initViz,{});
     return(
-       <div ref={ref}/>
+       <div ref={ref}>
+       </div>
     )
 }
 export default CollegeDash;

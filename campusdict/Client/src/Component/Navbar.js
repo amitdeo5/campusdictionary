@@ -17,7 +17,7 @@ function Navbar({ roleOfUser, isLogin, setLogin }) {
   return (
     <nav>
       <div className="nav-wrapper ">
-        <a href="/" className="left brand-logo"><img style={{ height: "65px" }} src="./CD_L.png" alt=" " /></a>
+        <a href="/" className="left brand-logo"><img style={{ height: "65px" }} src="./CD_L.png" alt="" /></a>
         <ul id="nav-mobile" className="right" style={{ display: 'flex', justifyContent: 'space-around' }}>
           {!isLogin && <li><Link to="/user/login"><p style={{
             'fontSize': '1.2rem',

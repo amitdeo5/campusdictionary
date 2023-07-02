@@ -5,11 +5,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Field, Form, Formik } from "formik";
 import * as yup from 'yup'
-import { InputLabel, MenuItem, Select } from "@mui/material";
+import { CircularProgress, InputLabel, MenuItem, Select } from "@mui/material";
 
 toast.configure();
 function Signup() {
   const [show, setShow] = useState(false);
+  const [loader,setLoader]=useState(false);
   let history = useHistory();
   const initialSchema = {
     name: '',
@@ -24,11 +25,11 @@ function Signup() {
     password: yup.string().required('Please enter your password'),
   })
   const Postdata = (values, errors) => {
-    console.log(JSON.stringify(values, null, 2))
     if (errors.length > 0) {
       toast.error("Please complete all the required fields")
     }
     else {
+      setLoader(true);
       fetch("/api/v1/user/register", {
         method: "post",
         headers: {
@@ -43,7 +44,7 @@ function Signup() {
         })
       }).then(res => res.json())
         .then(data => {
-          console.log(JSON.stringify(data));
+          setLoader(false);
           if (data.error) {
             toast.error("Please check all your fields")
           }
@@ -53,6 +54,7 @@ function Signup() {
 
         })
         .catch(err => {
+          setLoader(false);
           console.log(err);
           toast.error("Something went wrong ")
         })
@@ -116,13 +118,17 @@ function Signup() {
                       <p>An Email has been sent to you Successfully. Please verify </p>
                     </div>
                     }
-                    {!show && <button
+                    {(!loader && !show) && <button
                       onClick={() => { Postdata(values, errors) }} className="btn waves-effect #64b5f6 clrbtn" >
                       Sign Up
                     </button>}
-                    {!show && <h5>
+                    {(!loader && !show) && <h5>
                       <Link style={{ color: "black" }} to="/user/login"> Already Have an Account?</Link>
                     </h5>}
+                    {loader && 
+                      <div className="flex justify-center">
+                        <CircularProgress color="secondary" />
+                      </div>}
                   </div>
                 </div>
               </div>

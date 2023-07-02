@@ -36,7 +36,7 @@ export default function FullCard({ item, handleRoute }) {
                 <Box sx={style}>
                     <div className="">
                         <div className="" style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', }}>
-                            <div className='flex bg-red-500'>
+                            <div className=''>
                                 <img src={item.pic} className="" style={{ width: 600, objectFit: 'cover', height: 200 }} alt="none" />
                             </div>
                             <div className="p-3" style={{ display: 'flex', flexDirection: 'column' }}>

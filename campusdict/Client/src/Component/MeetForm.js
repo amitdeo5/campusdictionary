@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import M from "materialize-css";
+import { Space, Spin, TimePicker } from 'antd';
 import { Field, Form, Formik } from "formik";
 import { ToastContainer, toast } from 'react-toastify';
 import * as yup from 'yup';
 import moment from "moment/moment";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
+import { CircularProgress } from "@mui/material";
 export const MeetForm = ({ email ,clgName}) => {
     const userEmail = localStorage.getItem('userEmail');
     const history = useHistory()
@@ -46,7 +48,7 @@ export const MeetForm = ({ email ,clgName}) => {
         instruct: '',
         collegeName:clgName,
     }
-
+    const [loader,setLoader]=useState(false);
     const validationSchema = yup.object().shape({
         name: yup.string().required("Required"),
         date: yup.mixed().required('Please choose date for your meet'),
@@ -57,18 +59,21 @@ export const MeetForm = ({ email ,clgName}) => {
         // console.log("payload",values);
         try {
             // Send email using the backend API endpoint
+            setLoader(true);
             await axios.post('/api/v1/send-email', {
                 to: email,
                 cc: userEmail,
                 subject: 'Campus Dictionary Meeting info',
                 text: JSON.stringify(values),
             }).then(res => {
+                setLoader(false);
                 if (res.status === 200) { toast.success("Email Sent Successfully 👌") }
                 history.push('/');
             })
 
 
         } catch (error) {
+            setLoader(false);
             console.error('Error sending email:', error);
             toast.error('Failed to send email 😖.');
         }
@@ -81,7 +86,7 @@ export const MeetForm = ({ email ,clgName}) => {
                 console.log(values);
                 return (
                     <Form>
-                        <div className="mycard ">
+                        <div className="mycard">
                             <div className="card auth-card input-field" style={{ fontFamily: 'monospace' }}>
                                 <h2 style={{ fontWeight: 600 }}>Meeting Details</h2>
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -101,14 +106,23 @@ export const MeetForm = ({ email ,clgName}) => {
                                     </input>
                                     {errors.date && <p style={{ color: 'red' }}>{errors.date}</p>}
                                 </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                                    <input type="text"
-                                        ref={timePickerRef}
-                                        style={{ fontFamily: 'monospace' }} class="timepicker"
-                                        placeholder="Enter time for the meeting">
-                                    </input>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start',marginTop:4,marginBottom:4 }}>
+                                        <TimePicker placeholder="Enter time for the meeting" style={{
+                                            width:'100%',
+                                            borderBottom:'1px solid  black !important',
+                                            borderLeft:0,
+                                            borderRight:0,
+                                            borderTop:0,
+                                            borderRadius:0,
+                                            paddingLeft:0,
+                                        }}use12Hours format="h:mm a"
+                                        // bordered={false}
+                                         onChange={(time,timeString)=>{
+                                            setFieldValue('time',timeString);
+                                        }} />
                                     {errors.time && <p style={{ color: 'red' }}>{errors.time}</p>}
                                 </div>
+
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                                     <Field
                                         onChange={handleChange('orgname')}
@@ -122,9 +136,13 @@ export const MeetForm = ({ email ,clgName}) => {
                                     <textarea id="textarea1" class="materialize-textarea" value={values.instruct} onChange={handleChange('instruct')}></textarea>
                                     <label for="textarea1">Please share anything Acc. to Your needs.</label>
                                 </div>
-                                <button onClick={() => handleSubmit(values)} className="btn waves-effect #ee6e73 clrbtn" >
+                                {!loader && <button onClick={() => handleSubmit(values)} className="btn waves-effect #ee6e73 clrbtn" >
                                     Send the Invitation.
-                                </button>
+                                </button>}
+                                {loader && 
+                                <div className="flex justify-center">
+                                    <CircularProgress color="secondary" />
+                                </div>}
                                 <h5>
                                 </h5>
                             </div>

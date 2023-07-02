@@ -33,7 +33,7 @@ import { useHistory ,useParams } from "react-router-dom";
     [validUrl])
 
     return (
-        <Forbidden></Forbidden>
+        (!validUrl && <Forbidden/>)
     )
 }
 

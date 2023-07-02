@@ -5,6 +5,7 @@ import Fimage from "./Fimage"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ImageGroup } from "semantic-ui-react";
+import { CircularProgress } from "@mui/material";
 
 toast.configure();
 
@@ -21,6 +22,7 @@ export function useIsMounted() {
 function AddCollege() {
 
   let history = useHistory();
+  const [loader,setLoader]=useState(false);
   const [title, settitle] = useState("");
   const [body, setbody] = useState("");
   const [photo, setphoto] = useState("");
@@ -47,6 +49,11 @@ function AddCollege() {
 
 
     if (url) {
+      if(!title||!body||!photo||!meet_link||!placement||!url){
+        toast.error('Please enter value in all fields 😖');
+      }
+      else{
+      setLoader(true);
       fetch("/api/v1/college/new", {
         method: "post",
         headers: {
@@ -65,6 +72,7 @@ function AddCollege() {
         })
       }).then(res => res.json())
         .then(data => {
+          setLoader(false);
           if (data.error) {
             toast.error(data.error);
           }
@@ -73,8 +81,10 @@ function AddCollege() {
             history.push('/')
           }
         }).catch(err => {
+          setLoader(false);
           console.log(err)
         })
+      }
     }
   }, [url])
 
@@ -94,6 +104,9 @@ function AddCollege() {
         setUrl((data.url))
       })
       .catch(err => console.log(err))
+    if(!title||!body||!photo||!meet_link||!placement){
+      toast.error('Please enter value in all fields 😖');
+    }
   }
 
 
@@ -144,9 +157,13 @@ function AddCollege() {
                 <input class="file-path validate" type="text" />
               </div>
             </div>
-            <button onClick={postdetails} className="clrbtn btn waves-effect #64b5f6  " type="submit" name="action">
+            {!loader && <button onClick={postdetails} className="clrbtn btn waves-effect #64b5f6  " type="submit" name="action">
               Submit Info
-            </button>
+            </button>}
+            {loader && 
+              <div className="flex justify-center">
+                <CircularProgress color="secondary" />
+              </div>}
           </div>
         </div>
       </div>

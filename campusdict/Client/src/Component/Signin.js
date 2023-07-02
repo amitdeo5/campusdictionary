@@ -6,14 +6,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import * as yup from 'yup';
+import { CircularProgress } from "@mui/material";
 
 toast.configure();
 
 function Signin({ setLogin }) {
   let history = useHistory();
   const [send, setSend] = useState(false);
+  const [loader,setLoader] =useState(false);
   const formikRef = useRef(null);
   const Postdata = (values) => {
+    setLoader(true);
     axios.post('/api/v1/user/login', {
       email: values.email,
       password: values.password
@@ -23,7 +26,7 @@ function Signin({ setLogin }) {
       }
     })
       .then(response => {
-        console.log(response.status);
+        setLoader(false);
         const data = response.data;
         if (data.error) {
           toast.error(data.error);
@@ -37,6 +40,7 @@ function Signin({ setLogin }) {
         }
       })
       .catch(error => {
+        setLoader(false);
         const arr=Object.values(error)
         const status=(arr[2].status);
         if(status === 400 )setSend(true);
@@ -85,13 +89,17 @@ function Signin({ setLogin }) {
               }}>
                 <p>An Email has been sent to you for verification . Please verify </p>
               </div>}
-              {!send && <button
+              {!send && !loader &&<button
                onClick={() => {Postdata(values)}} className="btn waves-effect #ee6e73 clrbtn" >
                 Log In
               </button>}
-              {!send && <h5>
+              {!send && !loader && <h5>
                 <Link style={{ color: "black" }} to="/user/register"> Don't Have an Account?</Link>
               </h5>}
+              {loader && 
+                <div className="flex justify-center">
+                  <CircularProgress color="secondary" />
+                </div>}
             </div>
 
           </div>

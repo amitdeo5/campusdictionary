@@ -75,7 +75,7 @@ exports.loginUser=async(req,res,next)=>{
     try{
         const {email, password } = req.body;
         const user=await User.findOne({email});
-        console.log(user);
+        // console.log(user);
 
         if(!email||!password){
             return res.status(401).json({

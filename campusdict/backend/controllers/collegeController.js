@@ -4,7 +4,6 @@ const College = require("../models/college");
 exports.createCollege =async (req,res,next)=>{
     try{
         const college = await College.create(req.body);
-        console.log(req.body);
         
         if(!college){
             return res.status(400).json({
